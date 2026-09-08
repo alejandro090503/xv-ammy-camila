@@ -111,30 +111,6 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:600;color:var(--gold)}
 /* hero-bg-wrap, hero-bg y hero-bg-overlay eliminados: viñeta oscura quitada por petición del cliente */
 /* hero-frame eliminado: la viñeta dorada se quitó por petición del cliente */
 
-/* ============ DIVIDER ENVELOPE ============ */
-  position:relative;text-align:center;
-  padding:clamp(40px,7vw,72px) 0;
-  overflow:hidden;
-  background:var(--surface);
-}
-  content:"";position:absolute;left:0;right:0;top:0;height:80px;
-  background:linear-gradient(to bottom,var(--surface),transparent);
-  z-index:2;pointer-events:none;
-}
-  content:"";position:absolute;left:0;right:0;bottom:0;height:80px;
-  background:linear-gradient(to top,var(--surface),transparent);
-  z-index:2;pointer-events:none;
-}
-  display:block;
-  width:min(480px,90vw);
-  height:auto;
-  margin:0 auto;
-  border-radius:8px;
-  box-shadow:
-    0 12px 48px rgba(95,63,140,.22),
-    0 3px 12px rgba(95,63,140,.12);
-  position:relative;z-index:1;
-}
 .hero-content{position:relative;z-index:1;text-align:center;color:var(--accent-deep);padding:40px 32px;max-width:960px;}
 .hero-ornament-top{display:block;margin:0 auto 28px;width:180px;height:auto;opacity:.9}
 .hero-eyebrow{
@@ -690,7 +666,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 .env-mailbox-icon{width:42px;height:42px;color:var(--gold-deep);margin-top:6px}
 .env-title{font-family:var(--script);font-size:clamp(28px,8vw,34px);line-height:1.4;padding:.08em 0;color:var(--accent-deep)}
 .env-desc{font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);line-height:1.7;max-width:320px}
-.env-tap-hint{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-top:18px;padding-left:.3em;opacity:0;transition:opacity .5s ease;position:relative;z-index:1}
+.env-tap-hint{text-align:center;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-top:18px;padding-left:.3em;opacity:0;transition:opacity .5s ease;position:relative;z-index:1}
 .env-tap-hint.show{opacity:.9;animation:envHintPulse 2.4s ease-in-out infinite}
 .env-interactive.open~.env-tap-hint{opacity:0!important;animation:none;pointer-events:none}
 @keyframes envHintPulse{0%,100%{opacity:.55}50%{opacity:1}}
