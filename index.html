@@ -101,7 +101,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:600;color:var(--gold)}
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;isolation:isolate;contain:layout paint;
   background:
-    url('./date-bg.webp') center/cover no-repeat,
+    url('./bg-corners.jpeg') center/cover no-repeat,
     linear-gradient(160deg,#cdbedf 0%,#d9c6f2 50%,#c4bbe8 100%);
 }
 .hero::after{
@@ -480,7 +480,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:600;color:var(--gold)}
 
 /* ============ VERSICULO background ============ */
 .section-surface.versiculo{overflow:hidden;}
-.section-surface.versiculo::before{content:"";position:absolute;inset:-2px;background:url('./bg-corners.jpeg') center/cover no-repeat;opacity:.55;pointer-events:none;z-index:0;
+.section-surface.versiculo::before{content:"";position:absolute;inset:-2px;background:url('./date-bg.webp') center/cover no-repeat;opacity:.55;pointer-events:none;z-index:0;
   mask-image:linear-gradient(to bottom,transparent 0%,black 14%,black 86%,transparent 100%);
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 14%,black 86%,transparent 100%);}
 .section-surface.versiculo > .container{position:relative;z-index:1;}
@@ -697,6 +697,33 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 .env-body.landed{animation:envBreathe 3.6s ease-in-out infinite}
 @keyframes envBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
 @media(prefers-reduced-motion:reduce){.env-body.landed,.env-tap-hint.show{animation:none!important}}
+
+/* ====== EFECTO NUBE: halo apilado para legibilidad sobre fondo con textura ======
+   Receta de boda-ciro-y-osmara / boda-stephany-y-alberto. Se aplica DIRECTO a los
+   selectores de texto (sin wrapper) para no tocar elementos con fondo propio. */
+.versiculo .verse-text,
+.versiculo .verse-quote,
+.date-hero .date-eyebrow,
+.date-hero .date-h,
+.date-hero .date-h em,
+.date-hero .date-num,
+.date-hero .date-lbl,
+.date-hero .date-roman{
+  text-shadow:
+    0 0 4px #fdfbff,0 0 4px #fdfbff,0 0 9px #fdfbff,0 0 9px #fdfbff,
+    0 0 16px #fdfbff,0 0 16px #fdfbff,0 0 26px #fdfbff,0 0 38px #fdfbff,
+    0 0 52px rgba(253,251,255,.95);
+}
+/* Resplandor suave detras del bloque de texto, ceñido al centro */
+.versiculo .verse-wrap{position:relative}
+.versiculo .verse-wrap::before{
+  content:"";position:absolute;inset:-8% -6%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(253,251,255,.72) 0%,rgba(253,251,255,.42) 46%,transparent 72%);
+}
+.date-hero > .container::before{
+  content:"";position:absolute;inset:-6% -4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(253,251,255,.66) 0%,rgba(253,251,255,.38) 48%,transparent 74%);
+}
 </style>
 </head>
 <body>
