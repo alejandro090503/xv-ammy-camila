@@ -662,7 +662,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 .env-seal{position:absolute;top:52%;left:50%;width:23%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:3;transition:opacity .35s ease,transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .env-interactive.open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.7)}
 .env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .3s ease,opacity .4s .38s ease;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 16px;text-align:center;pointer-events:none}
-.env-interactive.open .env-open-content{max-height:340px;opacity:1;pointer-events:auto;margin-top:20px}
+.env-interactive.open .env-open-content{max-height:480px;opacity:1;pointer-events:auto;margin-top:20px}
 .env-mailbox-icon{width:42px;height:42px;color:var(--gold-deep);margin-top:6px}
 .env-title{font-family:var(--script);font-size:clamp(28px,8vw,34px);line-height:1.4;padding:.08em 0;color:var(--accent-deep)}
 .env-desc{font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);line-height:1.7;max-width:320px}
@@ -1026,19 +1026,11 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
         </div>
       </div>
 
-      <!-- Colores sugeridos -->
+      <!-- Color a evitar -->
       <div class="dress-avoid">
-        <div class="swatch-group-title">Color sugerido</div>
-        <div class="avoid-list">
-          <div class="avoid-item"><span class="avoid-c" style="background:#d4c5b2"></span>Beige</div>
-        </div>
-        <div class="avoid-note">Un tono neutro que acompaña la paleta de la noche</div>
-
-        <div class="swatch-group-title" style="margin-top:30px">Colores a evitar</div>
+        <div class="swatch-group-title">Color a evitar</div>
         <div class="avoid-list">
           <div class="avoid-item"><span class="avoid-c" style="background:#c9a7e8"></span>Lila</div>
-          <div class="avoid-item"><span class="avoid-c" style="background:#ff00ff"></span>Fucsia</div>
-          <div class="avoid-item"><span class="avoid-c" style="background:#ffffff;border:1px solid rgba(95,63,140,.35)"></span>Blanco</div>
         </div>
         <div class="avoid-note">El lila es el color exclusivo de la quinceañera</div>
       </div>
@@ -1094,7 +1086,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
             <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
           </svg>
           <p class="env-title">Tu presencia es mi mejor regalo</p>
-          <p class="env-desc">El día del evento habrá una urna donde podrás depositar tu sobre con mucho cariño.</p>
+          <p class="env-desc">Si deseas tener un detalle conmigo, tu regalo será bienvenido y te lo agradezco de corazón. También habrá una lluvia de sobres, que será recibida con mucho cariño.</p>
         </div>
       </button>
       <p class="env-tap-hint" id="envGiftHint">Toca para abrir</p>
