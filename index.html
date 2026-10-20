@@ -708,6 +708,39 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
   content:"";position:absolute;inset:-6% -4%;z-index:-1;pointer-events:none;
   background:radial-gradient(ellipse at center,rgba(253,251,255,.66) 0%,rgba(253,251,255,.38) 48%,transparent 74%);
 }
+
+/* ============ RETRATO + GALERIA + BOLAS DISCO (tematica de la quinceanera) ============ */
+.retrato{position:relative;max-width:330px;margin:0 auto 54px;text-align:center}
+.retrato-frame{position:relative;border-radius:170px 170px 14px 14px;overflow:hidden;padding:8px;
+  background:linear-gradient(145deg,#f5dfa0,#c9a044 45%,#f5dfa0 70%,#a274d6);
+  box-shadow:0 18px 44px rgba(95,63,140,.22)}
+.retrato-frame img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:35% 50%;border-radius:162px 162px 8px 8px}
+.disco{position:absolute;pointer-events:none;filter:drop-shadow(0 6px 14px rgba(60,40,90,.28))}
+.disco--retrato{width:78px;right:-18px;top:-26px;z-index:2;animation:discoSpin 3.2s ease-in-out infinite}
+.galeria{position:relative;overflow:hidden;text-align:center;padding:min(12vh,110px) 0}
+.galeria h2{margin-bottom:34px}
+.disco--gal{width:92px;left:6%;top:30px;opacity:.9;animation:discoSpin 3.8s ease-in-out infinite}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;margin:0 auto}
+.gal-item{margin:0;overflow:hidden;border-radius:10px;border:1px solid var(--hair-gold);box-shadow:0 8px 22px rgba(95,63,140,.12);background:var(--paper)}
+.gal-item img{display:block;width:100%;height:100%;aspect-ratio:2/3;object-fit:cover}
+.gal-item--wide{grid-column:span 2}
+.gal-item--wide img{aspect-ratio:3/2}
+.disco-hang{position:absolute;top:0;z-index:2;pointer-events:none;transform-origin:50% 0;animation:discoSwing 5.5s ease-in-out infinite}
+.disco-hang::before{content:"";display:block;width:1px;margin:0 auto;background:linear-gradient(var(--gold-deep),var(--gold))}
+.disco-hang img{display:block;animation:discoSpin 3s ease-in-out infinite;filter:drop-shadow(0 8px 16px rgba(60,40,90,.30))}
+.disco-hang--l{left:9%}
+.disco-hang--l::before{height:70px}
+.disco-hang--l img{width:62px}
+.disco-hang--r{right:11%;animation-delay:-2.2s}
+.disco-hang--r::before{height:120px}
+.disco-hang--r img{width:46px}
+.disco-hang--date{right:8%;animation-delay:-1.2s}
+.disco-hang--date::before{height:90px}
+.disco-hang--date img{width:56px}
+@keyframes discoSwing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes discoSpin{0%,100%{filter:drop-shadow(0 8px 16px rgba(60,40,90,.30)) brightness(1)}50%{filter:drop-shadow(0 8px 18px rgba(162,116,214,.45)) brightness(1.18)}}
+@media(min-width:768px){.gal-grid{grid-template-columns:repeat(3,1fr)}.gal-item--wide{grid-column:span 3}.retrato{max-width:380px}}
+@media(prefers-reduced-motion:reduce){.disco-hang,.disco,.disco-hang img{animation:none}}
 </style>
 </head>
 <body>
@@ -748,6 +781,8 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 
   <!-- HERO -->
   <section class="hero">
+    <div class="disco-hang disco-hang--l" aria-hidden="true"><img src="./disco.webp" alt=""></div>
+    <div class="disco-hang disco-hang--r" aria-hidden="true"><img src="./disco.webp" alt=""></div>
     <div class="hero-content">
       <svg class="hero-ornament-top" viewBox="0 0 200 40" fill="none" aria-hidden="true">
         <g stroke="var(--gold)" stroke-width=".9" fill="none" opacity=".9">
@@ -774,6 +809,12 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
   <!-- FRASE INICIAL -->
   <section class="section-surface versiculo">
     <div class="container">
+      <figure class="retrato">
+        <img class="disco disco--retrato" src="./disco.webp" alt="" aria-hidden="true">
+        <div class="retrato-frame">
+          <img src="./foto06.webp" alt="Ammy Camila en su vestido lila" fetchpriority="high">
+        </div>
+      </figure>
       <div class="verse-wrap">
         <svg class="verse-ornament" viewBox="0 0 360 80" fill="none" aria-hidden="true">
           <g stroke="var(--gold)" stroke-width="1" opacity=".8" fill="none">
@@ -795,6 +836,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 
   <!-- FECHA HERO -->
   <section class="date-hero">
+    <div class="disco-hang disco-hang--date" aria-hidden="true"><img src="./disco.webp" alt=""></div>
     <div class="container">
       <div class="date-eyebrow" data-anim="date-eb">Reserva esta fecha</div>
       <h2 class="date-h">Mi <em>gran</em> día</h2>
@@ -860,8 +902,8 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
 
           <div class="loc-type">Ceremonia</div>
           <div class="loc-name">Jardín de Vista Real</div>
-          <div class="loc-time">5:00 PM</div>
-          <div class="loc-addr">Paseo Vista Real s/n, Casa Club Vista Real<br>C.P. 76905, Querétaro, Qro.<br><strong>Recepción de invitados 4:30 PM</strong></div>
+          <div class="loc-time">4:30 PM</div>
+          <div class="loc-addr">Paseo Vista Real s/n, Casa Club Vista Real<br>C.P. 76905, Querétaro, Qro.<br><strong>Iniciamos puntualmente a las 5:00 PM</strong></div>
 
           <div class="loc-map-wrap">
             <iframe
@@ -903,6 +945,26 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
   </section>
 
   <div class="seam" style="--from:var(--surface);--to:var(--bg)" aria-hidden="true"></div>
+
+  <!-- GALERIA -->
+  <section class="section-bg galeria">
+    <img class="disco disco--gal" src="./disco.webp" alt="" aria-hidden="true">
+    <div class="container">
+      <div class="eyebrow">Momentos</div>
+      <h2>Mi <em>sesión</em> de XV</h2>
+      <div class="gal-grid">
+        <figure class="gal-item"><img src="./foto05.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item"><img src="./foto10.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item"><img src="./foto07.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item"><img src="./foto08.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item gal-item--wide"><img src="./foto09.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item"><img src="./foto03.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item"><img src="./foto04.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item gal-item--wide"><img src="./foto01.webp" alt="Ammy Camila" loading="lazy"></figure>
+        <figure class="gal-item gal-item--wide"><img src="./foto02.webp" alt="Ammy Camila" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
 
   <!-- COUNTDOWN -->
   <section class="section-bg countdown">
@@ -1055,7 +1117,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
       <div class="gifts-head">
         <div class="eyebrow">Con cariño</div>
         <h2>Mesa de <em>regalos</em></h2>
-        <p class="gifts-sub">El mejor regalo es tu compañía en este día tan especial. Si deseas tener un detalle conmigo, una lluvia de sobres será recibida con todo el corazón.</p>
+        <p class="gifts-sub">El mejor regalo es tu compañía en este día, pero si gustas tener algún detalle conmigo será bien recibido. También habrá una lluvia de sobres recibida con el corazón.</p>
       </div>
       <button class="env-interactive" id="envGift" type="button" aria-label="Sobre — toca para abrir" aria-expanded="false">
         <div class="env-body" id="envGiftBody">
@@ -1094,7 +1156,7 @@ footer{background:linear-gradient(160deg,#d9c6f2 0%,#c4bbe8 35%,#d8d2e6 65%,#efe
             <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
           </svg>
           <p class="env-title">Tu presencia es mi mejor regalo</p>
-          <p class="env-desc">Si deseas tener un detalle conmigo, tu regalo será bienvenido y te lo agradezco de corazón. También habrá una lluvia de sobres, que será recibida con mucho cariño.</p>
+          <p class="env-desc">Gracias por acompañarme y por tu cariño en esta noche tan especial.</p>
         </div>
       </button>
       <p class="env-tap-hint" id="envGiftHint">Toca para abrir</p>
@@ -1710,7 +1772,7 @@ if(!('ontouchstart' in window)){
 }
 
 // ------ COUNTDOWN ------
-const countTarget = new Date('2026-12-05T17:00:00-06:00').getTime();
+const countTarget = new Date('2026-12-05T16:30:00-06:00').getTime();
 const cdEls = {d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s')};
 let lastVals = {d:'',h:'',m:'',s:''};
 function flipOn(el,newVal){
@@ -1931,7 +1993,7 @@ window.addEventListener('resize',()=>ScrollTrigger.refresh());
    - Si el archivo de la cancion falla (404, host caido, HTML en vez de mp3) se usa una de respaldo. */
 (function(){
   if(window.__elyAudio2) return; window.__elyAudio2=1;
-  var FALLBACK='https://boda-isaac-y-claudia.vercel.app/cancion.mp3';
+  var FALLBACK='https://xv-ammy-camila.vercel.app/music.mp3';
   var forced=false, gestured=false;
   function A(){ return document.querySelector('audio'); }
   function toFallback(a){
